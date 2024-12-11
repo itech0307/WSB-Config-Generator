@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows Sandbox Config Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Windows Sandbox Config Generator</h1>
+
+    <form id="configForm">
+      <!--File name-->
+      <label for="sandboxName">Sandbox Name/Tên file:</label>
+      <input type="text" id="sandboxName" name="sandboxName" required>
+
+      <!--vGPU-->
+      <div class="checkbox-group">
+        <input type="checkbox" id="vGPU" name="vGPU">
+        <label for="vGPU">Enable vGPU/Bật GPU ảo:</label>
+      </div>
+
+      <!--Networking-->
+      <div class="checkbox-group">
+        <input type="checkbox" id="networkEnabled" name="networkEnabled">
+        <label for="networkEnabled">Enable Network/Bật quyền truy cập mạng:</label>
+      </div>
+
+
+      <!--Mapped folders-->
+      <label for="foldersToMap">Mapped Folder:</label>
+      <input type="text" id="foldersToMap" name="foldersToMap">
+
+
+
+
+      <label for="appsToInstall">Install Apps (comma separated):</label>
+      <br>
+      <small><span style="color:#bd0e0e;">Chú ý:</span></small>
+      <input type="text" id="appsToInstall" name="appsToInstall">
+
+      <button type="submit">Generate Config</button>
+    </form>
+
+    <div id="downloadSection" class="hidden">
+      <a id="downloadLink" href="#" download="windows_sandbox_config.wsb">Download Config File</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
