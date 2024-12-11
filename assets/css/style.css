@@ -72,3 +72,9 @@ button:hover {
 #downloadLink:hover {
   text-decoration: underline;
 }
+label{
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-right: 10px; /* Thêm khoảng cách giữa label và checkbox */
+  font-weight:600;
+}

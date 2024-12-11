@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Windows Sandbox Config Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -26,15 +29,22 @@
       <!--Networking-->
       <div class="checkbox-group">
         <input type="checkbox" id="networkEnabled" name="networkEnabled">
-        <label for="networkEnabled">Enable Network/Bật quyền truy cập mạng:</label>
+        <label for="networkEnabled">Enable Network/Bật quyền truy cập mạng</label>
       </div>
 
 
       <!--Mapped folders-->
-      <label for="foldersToMap">Mapped Folder:</label>
-      <input type="text" id="foldersToMap" name="foldersToMap">
-
-
+      <label for="foldersToMap">Mapped Folder/Thư mục được ánh xạ:</label>
+      <!-- Dropdown  read/write access-->
+      <select id="foldersToMap" name="foldersToMap">
+        <option value="readWrite">Read/Write/Đọc viết</option>
+        <option value="readOnly">Read Only/Chỉ đọc</option>
+      </select>
+      <!--Host folder-->
+      <input type="text" id="hostFolder" name="hostFolder" placeholder="Host Folder/Thư mục trên máy chủ">
+      <!--Sandbox folder-->
+      <input type="text" id="sandboxFolder" name="sandboxFolder" placeholder="Sandbox Folder/Thư mục trên sandbox">
+      <button id="addFolder">+</button>
 
 
       <label for="appsToInstall">Install Apps (comma separated):</label>
