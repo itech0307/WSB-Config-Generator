@@ -12,51 +12,70 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>Windows Sandbox Config Generator</h1>
+  <div class="container my-5">
+    <h1 class="text-center">Windows Sandbox Config Generator</h1>
+    <p class="text-muted text-center">Tạo file cấu hình cho Windows Sandbox nhanh chóng và dễ dàng.</p>
 
     <form id="configForm">
-      <!--File name-->
-      <label for="sandboxName">Sandbox Name/Tên file:</label>
-      <input type="text" id="sandboxName" name="sandboxName" required>
+      <!-- Section: General Settings -->
+      <fieldset class="border p-3 mb-4">
+        <legend class="w-auto px-2">General Settings</legend>
+        <div class="mb-3">
+          <label for="sandboxName" class="form-label">Sandbox Name (Tên file):</label>
+          <input type="text" class="form-control" id="sandboxName" name="sandboxName" placeholder="Nhập tên file cấu hình" required>
+        </div>
+      </fieldset>
 
-      <!--vGPU-->
-      <div class="checkbox-group">
-        <input type="checkbox" id="vGPU" name="vGPU">
-        <label for="vGPU">Enable vGPU/Bật GPU ảo:</label>
-      </div>
+      <!-- Section: Optional Features -->
+      <fieldset class="border p-3 mb-4">
+        <legend class="w-auto px-2">Optional Features</legend>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="vGPU" name="vGPU">
+          <label class="form-check-label" for="vGPU">Enable vGPU (Bật GPU ảo)</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="networkEnabled" name="networkEnabled">
+          <label class="form-check-label" for="networkEnabled">Enable Network (Bật quyền truy cập mạng)</label>
+        </div>
+      </fieldset>
 
-      <!--Networking-->
-      <div class="checkbox-group">
-        <input type="checkbox" id="networkEnabled" name="networkEnabled">
-        <label for="networkEnabled">Enable Network/Bật quyền truy cập mạng</label>
-      </div>
+      <!-- Section: Mapped Folders -->
+      <fieldset class="border p-3 mb-4">
+        <legend class="w-auto px-2">Mapped Folders (Thư mục ánh xạ)</legend>
+        <div class="row">
+          <div class="col-md-2">
+            <select class="form-select" id="foldersToMap" name="foldersToMap">
+              <option value="readWrite">Read/Write</option>
+              <option value="readOnly">Read Only</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="hostFolder" name="hostFolder" placeholder="Host Folder (Thư mục trên máy chủ)">
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="sandboxFolder" name="sandboxFolder" placeholder="Sandbox Folder (Thư mục trên Sandbox)">
+          </div>
+          
+          <div class="col-md-1">
+            <button type="button" class="btn btn-primary" id="addFolder" style="padding: 8px">+</button>
+          </div>
+        </div>
+        <ul id="folderList" class="list-group"></ul>
+      </fieldset>
 
+      <!-- Section: Additional Commands -->
+      <fieldset class="border p-3 mb-4">
+        <legend class="w-auto px-2">Additional Commands</legend>
+        <label for="appsToInstall" class="form-label">Install Apps (comma-separated):</label>
+        <input type="text" class="form-control" id="appsToInstall" name="appsToInstall" placeholder="Nhập các ứng dụng cần cài đặt, cách nhau bằng dấu phẩy">
+      </fieldset>
 
-      <!--Mapped folders-->
-      <label for="foldersToMap">Mapped Folder/Thư mục được ánh xạ:</label>
-      <!-- Dropdown  read/write access-->
-      <select id="foldersToMap" name="foldersToMap">
-        <option value="readWrite">Read/Write/Đọc viết</option>
-        <option value="readOnly">Read Only/Chỉ đọc</option>
-      </select>
-      <!--Host folder-->
-      <input type="text" id="hostFolder" name="hostFolder" placeholder="Host Folder/Thư mục trên máy chủ">
-      <!--Sandbox folder-->
-      <input type="text" id="sandboxFolder" name="sandboxFolder" placeholder="Sandbox Folder/Thư mục trên sandbox">
-      <button id="addFolder">+</button>
-
-
-      <label for="appsToInstall">Install Apps (comma separated):</label>
-      <br>
-      <small><span style="color:#bd0e0e;">Chú ý:</span></small>
-      <input type="text" id="appsToInstall" name="appsToInstall">
-
-      <button type="submit">Generate Config</button>
+      <!-- Generate Button -->
+      <button type="submit" class="btn btn-success">Generate Config</button>
     </form>
 
-    <div id="downloadSection" class="hidden">
-      <a id="downloadLink" href="#" download="windows_sandbox_config.wsb">Download Config File</a>
+    <div id="downloadSection" class="mt-4 d-none">
+      <a id="downloadLink" class="btn btn-primary" href="#" download="windows_sandbox_config.wsb">Download Config File</a>
     </div>
   </div>
 

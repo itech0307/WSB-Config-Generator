@@ -78,3 +78,9 @@ label{
   margin-right: 10px; /* Thêm khoảng cách giữa label và checkbox */
   font-weight:600;
 }
+.form-control,
+.form-select {
+  height: 45px; /* Chiều cao đồng nhất */
+  padding: 10px; /* Căn chỉnh nội dung */
+  font-size: 16px; /* Đồng bộ kích thước chữ */
+}
